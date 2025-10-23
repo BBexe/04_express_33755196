@@ -1,41 +1,69 @@
-# 04_express_33755196
+# 04_express_33755196 — Simple Express Server
 
-An Express.js project. Fill in project-specific details (package.json, routes, env vars) where noted.
+Short lab project showing a minimal Express web app and extra routes.
 
-## Description
+## Overview
+This project implements a simple Express server that serves several routes:
+- `/` — Hello message
+- `/about` — About page
+- `/contact` — Contact details
+- `/date` — Current date and time
 
-## Requirements
-- Node.js >= 14 (adjust to your project)
-- npm or yarn
+Routes can be moved to `routes/main.js` for organization. The app listens on port 8000.
 
-## Installation
-1. Clone the repo
+## Prerequisites
+- Node.js (v12+ recommended)
+- npm
+- Git (for deployment)
+
+## Quick install (development)
+1. Open project folder in VS Code.
+2. Initialize project (if not done):
     ```
-    git clone <repo-url>
-    cd 04_express_33755196
+    npm init -y
     ```
-2. Install dependencies
+3. Install Express:
     ```
-    npm install
+    npm install express
     ```
 
-## ConfigurationS
+## Run locally
+Start the server:
 ```
-PORT=8000
-NODE_ENV=development
+node index.js
+```
+Open a browser:
+- http://localhost:8000
+- http://localhost:8000/about
+- http://localhost:8000/contact
+- http://localhost:8000/date
+
+Test with curl:
+```
+curl http://localhost:8000/date
 ```
 
-## Running
-Start in development:
-```
-npm run dev
-```
-Start production:
-```
-npm start
-```
+## Project structure (expected)
+- index.js
+- package.json
+- package-lock.json
+- routes/
+  - main.js
+- .gitignore (should contain `node_modules/`)
 
-```
+Example: `routes/main.js` exports an Express router with the route handlers; `index.js` mounts it with `app.use('/', mainRoutes)`.
 
-Provide request/response examples and status codes for each real endpoint.
+## Notes for code
+- Keep route handlers simple and add comments explaining each section.
+- Use `new Date()` to get current date/time for `/date`.
+- Use parameterised routes for extensions (`/welcome/:name`).
 
+
+
+Replace repository and VM URLs with your own as required by the assignment.
+
+## Extensions (optional)
+- `/welcome/:name` — show provided name
+
+## Author
+Student ID: 33755196
